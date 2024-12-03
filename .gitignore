@@ -1,0 +1,19 @@
+# Node.js specific
+node_modules/
+.env
+
+# Logs
+logs/
+*.log
+
+# Coverage reports
+coverage/
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+
+# OS specific
+.DS_Store
+Thumbs.db
