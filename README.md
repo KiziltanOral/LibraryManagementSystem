@@ -1,56 +1,72 @@
-# Dependencies Wiki
+# Library Management System
 
-This document lists the dependencies used in the Library Management System project and explains their purposes.
-
----
-
-## Installed Dependencies
-
-### 1. express
-- **Purpose:** A web framework for Node.js, used to create the API structure and handle HTTP requests.
+The **Library Management System** is a web application designed to manage users and books, allowing users to borrow and return books. The backend is built using **Node.js**, **Express.js**, and **Sequelize ORM**.
 
 ---
 
-### 2. body-parser
-- **Purpose:** Parses incoming request bodies in JSON format, making it easier to handle POST and PUT requests.
+## **Setup**
 
----
+### Requirements:
+- **Node.js**: Version 20+
+- **npm**: Version 10+
+- **Microsoft SQL Server**
 
-### 3. cors
-- **Purpose:** Enables Cross-Origin Resource Sharing (CORS), allowing the API to handle requests from different domains.
+### Steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<username>/library-management-system.git
+   cd library-management-system/backend
 
----
+2. Install dependencies:
+    ```bash
+    npm install
 
-### 4. dotenv
-- **Purpose:** Loads environment variables from a `.env` file, ensuring sensitive information like database credentials are securely managed.
+3. Create a .env file in the root directory and configure it as follows:
+    DB_HOST=localhost
+    DB_USERNAME=your_username
+    DB_PASSWORD=your_password
+    DB_NAME=library_db
+    DB_PORT=1433
+    DB_DIALECT=mssql
+    PORT=3000
 
----
+4. Create the database and run migrations:
+    ```bash
+    npx sequelize-cli db:create
+    npx sequelize-cli db:migrate
 
-### 5. nodemon
-- **Purpose:** Automatically restarts the server whenever file changes are detected during development.
----
+5. Start the application:
+    ```bash
+    npm start
 
-### 6. sequelize
-- **Purpose:** A promise-based ORM for Node.js that supports database operations and model management.
+## **Scripts**
 
----
+The following scripts are available in the project:
 
-### 7. sequelize-cli
-- **Purpose:** Command-line interface for Sequelize to manage models, migrations, and seeders.
+- **`npm start`**: Starts the application in production mode. It runs the application using `server.js`.
+  
+- **`npm run dev`**: Starts the application in debug mode with **Nodemon**.
+  
+- **`npm test`**: Placeholder for future test scripts (currently useless).
 
----
 
-### 8. mssql
-- **Purpose:** Driver for connecting and interacting with Microsoft SQL Server databases.
----
+## **Dependencies**
 
-### 9. joi
-- **Purpose:** Joi is used for schema validation of incoming API request bodies, ensuring that the data is valid before processing.
----
+The following dependencies are used in the project:
 
-## Sequelize CLI Setup
+| Package          | Version   | Purpose                                                                 |
+|-------------------|-----------|-------------------------------------------------------------------------|
+| `express`         | ^4.21.1   | Web framework for handling HTTP requests.                              |
+| `body-parser`     | ^1.20.3   | Parses incoming JSON requests.                                         |
+| `cors`            | ^2.8.5    | Enables Cross-Origin Resource Sharing (CORS).                         |
+| `dotenv`          | ^16.4.6   | Manages environment variables securely.                                |
+| `sequelize`       | ^6.37.5   | ORM for database interactions.                                         |
+| `sequelize-cli`   | ^6.6.2    | Command-line tool for managing migrations and models.                 |
+| `mssql`           | ^11.0.1   | Driver for Microsoft SQL Server.                                       |
+| `joi`             | ^17.13.3  | Validates API request payloads.                                        |
 
-The following command initializes the Sequelize project structure:
+### **DevDependencies**
 
-```bash
-npx sequelize-cli init
+| Package          | Version   | Purpose                                                                 |
+|-------------------|-----------|-------------------------------------------------------------------------|
+| `nodemon`         | ^3.1.7    | Automatically restarts the server during development on file changes.  |
