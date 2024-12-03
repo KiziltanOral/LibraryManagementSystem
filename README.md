@@ -14,7 +14,7 @@ The **Library Management System** is a web application designed to manage users 
 ### Steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<username>/library-management-system.git
+   git clone https://github.com/KiziltanOral/library-management-system.git
    cd library-management-system/backend
 
 2. Install dependencies:
